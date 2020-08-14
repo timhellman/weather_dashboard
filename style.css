@@ -1,6 +1,21 @@
 .jumbotron {
-    background-image: url("./images/globalweather.gif");
+    background-image: url("./images/usweather.png");
     background-size: cover;
     background-repeat: no-repeat;
-    color: blue;
+}
+
+.display-jumbotron {
+    text-align: center;
+    font-family: 'Damion', cursive;
+    font-size: 100px;
+    color: whitesmoke;
+    letter-spacing: 0.12em;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: darkslategray;
+    text-shadow: 4px 4px 6px #000000;
+}
+
+#fivedayforecast {
+    text-align: center;
+   
 }
