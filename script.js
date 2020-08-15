@@ -5,9 +5,12 @@ makeBtns()
 function makeBtns() {
     $("#searchHistory").html("")
     searched.forEach(function (item) {
-        $("#searchHistory").append(`<div class="btn btn-primary" style="width:60%;margin-left:20%;margin-top:6px">${item}</div>`)
+        $("#searchHistory").append(`<div class="btn btn-primary" name=${item} id="storedCity" style="width:60%;margin-left:20%;margin-top:6px">${item}</div>`)
+    
     })
 }
+
+
 
 
 $("#find-city").on("click", function (event) {
@@ -87,14 +90,15 @@ $("#find-city").on("click", function (event) {
 
 })
 
-$(“#searchHistory”).on(“click”, function (event) {
+
+$(“#storedCity”).on(“click”, function (event) {
 
     event.preventDefault();
     $("#fivedayforecast").empty()
-    var cityName = $("#cityName").val();
+    var storedCity = $("#storedCity").val();
 
 
-    var latLongUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + cityName + "&key=AIzaSyCLjaOmTbNl8M0ewJ5amY9cm6rytBGUVZM"
+    var latLongUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + storedCity + "&key=AIzaSyCLjaOmTbNl8M0ewJ5amY9cm6rytBGUVZM"
 
     $.ajax({
         url: latLongUrl,
@@ -119,7 +123,7 @@ $(“#searchHistory”).on(“click”, function (event) {
             console.log(weatherResponseWithLatAndLong.daily[0].wind_speed)
             console.log(weatherResponseWithLatAndLong.daily[0].temp.day)
             // places the searched cityName below the search bar after it is confirmed from the API data
-            if (!searched.includes(cityName)) searched.push(cityName);
+            if (!searched.includes(storedCity)) searched.push(storedCity);
             makeBtns()
             localStorage.setItem("citiesThatHaveBeenSearched", JSON.stringify(searched))
 
