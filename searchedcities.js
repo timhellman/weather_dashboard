@@ -1,7 +1,7 @@
-$("#storedCity").on("click", function (event) {
+$(".storedCity").on("click", function (event) {
     event.preventDefault();
     $("#fivedayforecast").empty()
-    var storedCity = $("#storedCity").val();
+    var storedCity = $(".storedCity").val();
 
 
     var latLongUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + storedCity + "&key=AIzaSyCLjaOmTbNl8M0ewJ5amY9cm6rytBGUVZM"

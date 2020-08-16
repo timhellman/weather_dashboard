@@ -5,7 +5,7 @@ makeBtns()
 function makeBtns() {
     $("#searchHistory").html("")
     searched.forEach(function (item) {
-        $("#searchHistory").append(`<div class="btn btn-primary" name=${item} id="storedCity" style="width:60%;margin-left:20%;margin-top:6px">${item}</div>`)
+        $("#searchHistory").append(`<div class="btn btn-primary storedCity" name=${item} style="width:60%;margin-left:20%;margin-top:6px">${item}</div>`)
     
     })
 }
