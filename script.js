@@ -82,6 +82,17 @@ function AJAXcall (event) {
     })
 
 }
+
+if(searched!==null){
+	searched.forEach(function (item) {
+	        $("#searchHistory").append(`<div class="btn btn-primary storedCity" name=${item} style="width:60%;margin-left:20%;margin-top:6px">${item}</div>`)
+	    })
+	    var citybuttons = document.querySelectorAll(".storedCity")
+	     for (i= 0; i < citybuttons.length; i++) {
+	         citybuttons[i].addEventListener("click",function(event){
+	             AJAXcall(event)
+	         })
+	     }
 makeBtns()
 function makeBtns() {
     $("#searchHistory").html("")
@@ -101,7 +112,7 @@ function makeBtns() {
 
     
 }
-
+}
 $("#find-city").on("click", AJAXcall)
 
 
